@@ -1,4 +1,3 @@
-const { entersState, VoiceConnectionStatus, joinVoiceChannel } = require('@discordjs/voice');
 const Discord = require("discord.js");
 module.exports = {
     name: "play",

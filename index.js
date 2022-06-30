@@ -159,12 +159,14 @@ client.distube
     //tempm.delete();
   })
   .on("addSong", (queue, song) => {
+    if(queue.songs.length == 0) return;
     const embed = new Discord.MessageEmbed()
       .setTitle(client.emotes.success + " Añadiendo")
       .setColor("#FFFFFF")
       .setDescription(`${song.name} - \`${song.formattedDuration}\` | añadida por: ${song.user}`)
       .setTimestamp()
-      .setFooter('Memer', client.botURL)
+      .setFooter('Memer', client.botURL);
+      
     queue.textChannel.send({ embeds: [embed] }).then(msg => {
       setTimeout(() => msg.delete(), 15000)
     })    
