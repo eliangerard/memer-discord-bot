@@ -37,7 +37,6 @@ module.exports = {
         fetch(url, options)
 	      .then(res => res.json() )
         .then(json => {
-          console.log(json)
             download(json.body.videoHD, 'video.mp4', async ()=>{
                 await message.channel.send({
                   content: `Video de <@${message.author.id}>`,
