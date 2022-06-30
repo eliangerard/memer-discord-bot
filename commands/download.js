@@ -25,7 +25,7 @@ module.exports = {
         const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': client.config.apis.rapidapikeys,
+            'X-RapidAPI-Key': client.config.apis.rapidapikey,
             'X-RapidAPI-Host': 'socialdownloader.p.rapidapi.com'
             }
         };
