@@ -35,6 +35,7 @@ module.exports = {
         fetch(url, options)
 	      .then(res => res.json() )
         .then(json => {
+          if(json.body.videoHD)
             download(json.body.videoHD, 'video.mp4', async ()=>{
                 await message.channel.send({
                   content: `Video de <@${message.author.id}>`,
@@ -58,6 +59,19 @@ module.exports = {
                 });
                 downloading.delete();
                 return message.delete();
+            })
+          else 
+            download(json.body.video, 'video.mp4', async ()=>{
+              await message.channel.send({
+                content: `Video de <@${message.author.id}>`,
+                files: [{
+                    attachment: './video.mp4',
+                    name: 'video.mp4'
+                }]
+              }).catch(error => {
+                downloading.delete();
+                return message.channel.send("El video pesa mucho y no se armó con discord no dió chance");
+              });
             })
           })
 	      .catch(err => console.error('error:' + err));
