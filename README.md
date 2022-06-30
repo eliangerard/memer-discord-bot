@@ -12,6 +12,7 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
    + URL Shortener Service
    + Everypixel Image Recognition
    + Open Weather Map
+   + SocialDownloader
 ## Comandos
 * Música
    + play: Reproduce música desde YouTube, SoundCloud, Facebook, y 700+ sitios (consultar documentación de Distube)
