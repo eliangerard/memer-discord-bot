@@ -18,6 +18,20 @@ module.exports = {
               })    
         }
         try {
+            if(queue.songs.length == 1){
+                queue.stop();
+
+                const embed = new Discord.MessageEmbed()
+                .setTitle(client.emotes.success + ` Finished`)
+                .setDescription("Cola terminada")
+                .setColor("#FFFFFF")
+                .setTimestamp()
+                .setFooter('Memer', client.botURL);
+                
+                return queue.textChannel.send({ embeds: [embed] }).then(msg => {
+                    setTimeout(() => msg.delete(), 15000)
+                })
+            }
             const song = queue.skip()            
             const embed = new Discord.MessageEmbed()
             .setTitle(client.emotes.success+" Skip")
