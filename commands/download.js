@@ -57,8 +57,6 @@ module.exports = {
                     });
                   })
                 });
-                downloading.delete();
-                return message.delete();
             })
           else 
             download(json.body.video, 'video.mp4', async ()=>{
@@ -73,7 +71,9 @@ module.exports = {
                 return message.channel.send("El video pesa mucho y no se armó con discord no dió chance");
               });
             })
-          })
+          downloading.delete();
+          return message.delete();
+        })
 	      .catch(err => console.error('error:' + err));
         
     }
