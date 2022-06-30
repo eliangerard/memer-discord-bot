@@ -26,7 +26,7 @@ module.exports = {
             .setDescription("Reanudando reproducción")
             .setTimestamp()
             .setFooter('Memer', client.botURL)
-            message.channel.send( { embeds: [embed] } ).then(msg => {
+            return await message.channel.send( { embeds: [embed] } ).then(msg => {
                 setTimeout(() => msg.delete(), 15000)
               })    
         }
