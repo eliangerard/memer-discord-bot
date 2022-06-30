@@ -5,6 +5,7 @@ module.exports = {
     run: async (client, message, args) => {
         const queue = client.distube.getQueue(message)
         setTimeout(() => message.delete(), 15000)
+        if(args.length > 1) return;
         if (!queue) {
             const embed = new Discord.MessageEmbed()
             .setTitle(client.emotes.error+" Error")
