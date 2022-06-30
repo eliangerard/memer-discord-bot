@@ -28,7 +28,7 @@ module.exports = {
                 .setTimestamp()
                 .setFooter('Memer', client.botURL);
                 
-                return queue.textChannel.send({ embeds: [embed] }).then(msg => {
+                return await queue.textChannel.send({ embeds: [embed] }).then(msg => {
                     setTimeout(() => msg.delete(), 15000)
                 })
             }
