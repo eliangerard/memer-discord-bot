@@ -8,7 +8,7 @@ const download = (uri, filename, callback) => {
     request.head(uri, function(err, res, body){
       console.log('content-type:', res.headers['content-type']);
       console.log('content-length:', res.headers['content-length']);
-  
+      if(res.headers['content-length'] > 8000000) throw new Error('Limit of 8MB exceded');
       request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
     });
   };
