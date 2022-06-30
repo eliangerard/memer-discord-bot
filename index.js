@@ -123,11 +123,10 @@ client.on('guildMemberRemove', async member => {
   }
 });
 client.on("messageCreate", async (message) => {
-  const prefix = client.config.prefix
-  console.log("Eitale "+prefix);
+  const prefix = client.config.prefix;
   if(!message.content.startsWith(prefix))return
   if(message.content.includes('leche'))message.react('🧐')
-  var messi = message.content.substring(1).split(' ');
+  let messi = message.content.substring(prefix.length).split(' ');
   const command = messi[0].toLowerCase()  
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
   if (!cmd) return
