@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
-var base64 = require('base-64');
+const base64 = require('base-64');
+const Discord = require("discord.js");
+
 module.exports = {
     name: "twdownload",
     aliases: ['twd'],
