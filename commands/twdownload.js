@@ -45,10 +45,10 @@ module.exports = {
             download(base64.decode(json.UrlDownload), 'twvideo.mp4', async ()=>{
                 downloading.delete();
                 await message.channel.send({
-                    content: `Video de <@${message.author.id}>`,
+                    content: `Video de <@${message.author.id}>\n${json.title}`,
                     files: [{
-                        attachment: './video.mp4',
-                        name: 'video.mp4'
+                        attachment: './twvideo.mp4',
+                        name: 'twvideo.mp4'
                     }]
                 }).catch(error => {
                     const embed = new Discord.MessageEmbed()
