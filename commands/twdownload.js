@@ -27,6 +27,8 @@ module.exports = {
             .setColor("#00FF00")
         const downloading = await message.channel.send({ embeds: [embed] })
 
+        const url = 'https://popular-video-downloader.p.rapidapi.com/twitter';
+        
         fetch(url, options)
             .then(res => res.json() )
         .then(json => {
