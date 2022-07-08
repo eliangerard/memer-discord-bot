@@ -42,7 +42,7 @@ module.exports = {
                     .setTitle(client.emotes.success + " Error")
                     .setDescription(error)
                     .setColor("#FF0000")
-                    await message.channel.send({ embeds: [embed] });
+                    message.channel.send({ embeds: [embed] });
                 })
             })
                 .catch(err => console.error('error:' + err));
