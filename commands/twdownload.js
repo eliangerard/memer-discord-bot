@@ -28,10 +28,11 @@ module.exports = {
         const downloading = await message.channel.send({ embeds: [embed] })
 
         const url = 'https://popular-video-downloader.p.rapidapi.com/twitter';
-        
+
         fetch(url, options)
             .then(res => res.json() )
         .then(json => {
+            console.log(json);
             if(json.body.UrlDownload)
             download(base64.decode(json.body.UrlDownload), 'twvideo.mp4', async ()=>{
                 downloading.delete();
