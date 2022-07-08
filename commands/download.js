@@ -11,8 +11,8 @@ const download = (uri, filename, callback) => {
   };
 
 module.exports = {
-    name: "download",
-    aliases: ['d'],
+    name: "fbdownload",
+    aliases: ['fbd'],
     run: async (client, message, messi) => {
         uri = "";
         if (messi.length <= 1) return;
