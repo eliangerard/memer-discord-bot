@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
 var base64 = require('base-64');
 module.exports = {
-    name: "fbdownload",
-    aliases: ['fbd'],
+    name: "twdownload",
+    aliases: ['twd'],
     run: async (client, message, messi) => {
         uri = "";
         if (messi.length <= 1) return;
