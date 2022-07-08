@@ -55,8 +55,10 @@ module.exports = {
                     .setTitle(client.emotes.success + " Error")
                     .setDescription(""+error)
                     .setColor("#FF0000")
-                    message.channel.send({ embeds: [embed] });
+                    return message.channel.send({ embeds: [embed] });
                 })
+                message.delete();
+
             })
         });
     }
