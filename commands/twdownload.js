@@ -33,7 +33,7 @@ module.exports = {
             .then(res => res.json() )
         .then(json => {
             console.log(json);
-            if(json.body.UrlDownload)
+            if(json.UrlDownload)
             download(base64.decode(json.body.UrlDownload), 'twvideo.mp4', async ()=>{
                 downloading.delete();
                 await message.channel.send({
