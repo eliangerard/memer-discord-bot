@@ -2,6 +2,7 @@ const request = require('request');
 const fetch = require('node-fetch');
 const base64 = require('base-64');
 const Discord = require("discord.js");
+const fs = require('fs');
 
 const download = (uri, filename, callback) => {
     request.head(uri, function(err, res, body){
