@@ -40,7 +40,7 @@ module.exports = {
         .then(json => {
             console.log(json);
             if(json.UrlDownload)
-            download(base64.decode(json.body.UrlDownload), 'twvideo.mp4', async ()=>{
+            download(base64.decode(json.UrlDownload), 'twvideo.mp4', async ()=>{
                 downloading.delete();
                 await message.channel.send({
                     content: `Video de <@${message.author.id}>`,
