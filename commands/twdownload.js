@@ -53,7 +53,7 @@ module.exports = {
                 }).catch(error => {
                     const embed = new Discord.MessageEmbed()
                     .setTitle(client.emotes.success + " Error")
-                    .setDescription(error)
+                    .setDescription(""+error)
                     .setColor("#FF0000")
                     message.channel.send({ embeds: [embed] });
                 })
