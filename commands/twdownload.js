@@ -57,7 +57,6 @@ module.exports = {
                     message.channel.send({ embeds: [embed] });
                 })
             })
-                .catch(err => console.error('error:' + err));
-            });
+        });
     }
 }
