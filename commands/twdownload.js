@@ -1,3 +1,4 @@
+const request = require('request');
 const fetch = require('node-fetch');
 const base64 = require('base-64');
 const Discord = require("discord.js");
