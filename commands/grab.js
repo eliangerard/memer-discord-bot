@@ -3,6 +3,6 @@ module.exports = {
     name: "grab",
     aliases: ["agarrar", "pescar", "link"],
     run: async (client, message, messi) => {
-        return message.author.send(client.distube.getQueue(message).currentLink);
+        return message.author.send(client.distube.getQueue(message).songs[0].url);
     }
 }
