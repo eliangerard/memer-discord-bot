@@ -17,7 +17,7 @@ module.exports = {
                 setTimeout(() => msg.delete(), 15000)
               })    
         }
-        setTimeout(() => message.delete(), 15000)
+        
         try {
             client.distube.search(string);
         } catch (e) {
