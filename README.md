@@ -70,7 +70,7 @@ Bot para Discord que reproduce música (vía [Distube](https://distube.js.org/#/
 
 ## Instalación
 Requerimentos
-* Node.js v16
+* Node.js v16+
 * npm v8
 > npm i
 
