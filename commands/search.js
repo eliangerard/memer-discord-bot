@@ -17,9 +17,10 @@ module.exports = {
                 setTimeout(() => msg.delete(), 15000)
               })    
         }
-        
+
         try {
-            client.distube.search(string);
+            client.distube.search(string)
+            .then(songs => console.log(songs));
         } catch (e) {
             const embed = new Discord.MessageEmbed()
             .setTitle(client.emotes.error+" Error")
