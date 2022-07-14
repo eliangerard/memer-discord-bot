@@ -8,7 +8,7 @@ const status = queue => `Volumen: \`${queue.volume}%\` | Filtro: \`${queue.filte
 
 const updateQueue = (queue) => {
     header = `**Reproduciendo:** ${queue.songs[0].name} - \`${queue.songs[0].formattedDuration}\`\n ${status(queue)}`;
-    q = `\n`;
+    q = ``;
     for(let i = page*10+1; i < (queue.songs.length > (page*10)+11 ? page*10+11 : queue.songs.length); i++)
         q += `**${i}.** ${queue.songs[i].name} - \`${queue.songs[i].formattedDuration}\`\n`;
     q += `\n*Página: ${(page+1)+"/"+totalPages}*`;
@@ -40,9 +40,11 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
         .setTitle(client.emotes.queue+" Cola")
         .setColor("#FFFFFF")
-        .setDescription(`${q}`)
+        .setDescription(`${header}`)
+        .addField("En la lista:", `${q}`)
         .setTimestamp()
         .setFooter('Memer', client.botURL);
+
         message.channel.send( { embeds: [embed] } ).then(msg => {
             const handler = (reaction, user) => {
                 if(reaction.message.id == msg.id && !user.bot){
@@ -64,10 +66,9 @@ module.exports = {
                     .setTitle(client.emotes.queue+" Cola")
                     .setColor("#FFFFFF")
                     .setDescription(`${header}`)
-                    .addField(`${q}`)
+                    .addField("En la lista:", `${q}`)
                     .setTimestamp()
                     .setFooter('Memer', client.botURL);
-                    msg.edit({ embeds: [embed] });
                 }
             }
             msg.react('⬅️');
