@@ -1,7 +1,7 @@
 # memer-bot
 Bot para Discord que reproduce música (vía [Distube](https://distube.js.org/#/)), permite acceso a juegos que no están disponibles en Discord Activity y algunas otras funciones, para las cuales es necesario registrarse en los siguientes servicios como desarrollador para obtener tokens de APIs:
-* [Discord (Para el token del bot)](https://discord.com/developers/applications)
-* [MongoDB (Base de datos, obtener String de conexión y nombre de la base de datos)](https://account.mongodb.com/)
+* [Discord](https://discord.com/developers/applications) (Para el token del bot)
+* [MongoDB](https://account.mongodb.com/) (Base de datos, obtener String de conexión y nombre de la base de datos)
 * [Spotify for Developers](https://developer.spotify.com/dashboard/)
 * [Genius](https://genius.com/api-clients)
 * [Giphy](https://developers.giphy.com/dashboard/)
@@ -76,7 +76,9 @@ Requerimentos
 
 Una vez instalados los paquetes, configurar el archivo config.json y listo, usar
 > node index.js
+
 o
+
 > node .
 
 Puedes mantener tu bot corriendo con ayuda de [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/)
