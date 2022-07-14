@@ -5,9 +5,11 @@ let totalPages;
 let q;
 
 const updateQueue = (queue) => {
+    console.log(queue.songs);
     q = `**Reproduciendo:** ${queue.songs[0].name} - \`${queue.songs[0].formattedDuration}\`\n`;
 
-    for(let i = page*10; i < queue.songs.length > page*10+10 ? page*10+10 : queue.songs.length; i++){
+    for(let i = page*10; i < (queue.songs.length > (page*10)+10 ? page*10+10 : queue.songs.length); i++){
+        console.log(i);
         q += `**${i}.** ${queue.songs[i].name} - \`${queue.songs[i].formattedDuration}\`\n`;
     }
 
