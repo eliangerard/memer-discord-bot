@@ -5,7 +5,6 @@ let totalPages;
 let q;
 
 const updateQueue = (queue) => {
-    console.log(queue.songs);
     q = `**Reproduciendo:** ${queue.songs[0].name} - \`${queue.songs[0].formattedDuration}\`\n`;
 
     for(let i = page*10+1; i < (queue.songs.length > (page*10)+11 ? page*10+11 : queue.songs.length); i++){
@@ -62,6 +61,7 @@ module.exports = {
                         else page--;
                         updateQueue(queue);
                     }
+                    console.log("Updating: \n"+q);
                     const embed = new Discord.MessageEmbed()
                     .setTitle(client.emotes.queue+" Cola")
                     .setColor("#FFFFFF")
