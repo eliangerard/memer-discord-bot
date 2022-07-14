@@ -9,11 +9,11 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
    + Meme Generator
    + Microsoft Translator
    + Joke
-   + URL Shortener Service
-   + Everypixel Image Recognition
-   + Open Weather Map
-   + SocialDownloader
-   + (Popular Video Downloader) [https://rapidapi.com/webcracking/api/popular-video-downloader/]
+   + [URL Shortener Service] (https://rapidapi.com/BigLobster/api/url-shortener-service/)
+   + [Everypixel Image Recognition] (https://rapidapi.com/everypixel/api/everypixel-image-recognition/)
+   + [Open Weather Map] (https://rapidapi.com/community/api/open-weather-map/)
+   + [SocialDownloader] (https://rapidapi.com/CrashBash/api/socialdownloader/)
+   + [Popular Video Downloader] (https://rapidapi.com/webcracking/api/popular-video-downloader/)
 ## Comandos
 * Música
    + play: Reproduce música desde YouTube, SoundCloud, Facebook, y 700+ sitios (consultar documentación de Distube)
