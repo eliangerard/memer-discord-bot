@@ -185,15 +185,15 @@ client.distube
     })    
   })
   // DisTubeOptions.searchSongs = true
-  .on("searchResult", (queue, result) => {
-    let i = 0
+  .on("searchResult", (message, result) => {
+    let i = 0;
     const embed = new Discord.MessageEmbed()
       .setTitle(`Búsqueda`)
       .setColor("#FFFFFF")
       .setDescription(`${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Ingresa cualquier otra cosa o espera 60 segundos para cancelar*`)
       .setTimestamp()
       .setFooter('Memer', client.botURL)
-    queue.textChannel.send({ embeds: [embed] }).then(msg => {
+    message.channel.send({ embeds: [embed] }).then(msg => {
       setTimeout(() => msg.delete(), 15000)
     })    
   })
@@ -207,6 +207,24 @@ client.distube
     message.channel.send({ embeds: [embed] }).then(msg => {
       setTimeout(() => msg.delete(), 15000)
     })    
+  })
+  .on("searchNoResult", (message, query) => {
+    const embed = new Discord.MessageEmbed()
+      .setTitle(client.emotes.error + ` Búsqueda`)
+      .setDescription(`No se encontraron resultados para ${query}`)
+      .setColor("#FFFFFF")
+      .setTimestamp()
+      .setFooter('Memer', client.botURL)
+    message.channel.send({ embeds: [embed] })
+  })
+  .on("searchInvalidAnswer", (message) => {
+    const embed = new Discord.MessageEmbed()
+      .setTitle(client.emotes.error + ` Búsqueda`)
+      .setDescription(`Ese número no está en la lista :)`)
+      .setColor("#FFFFFF")
+      .setTimestamp()
+      .setFooter('Memer', client.botURL)
+    message.channel.send({ embeds: [embed] })
   })
   .on("error", (channel, e) => {
     const embed = new Discord.MessageEmbed()
@@ -230,15 +248,6 @@ client.distube
     queue.textChannel.send({ embeds: [embed] }).then(msg => {
       setTimeout(() => msg.delete(), 15000)
     })    
-  })
-  .on("searchNoResult", message => {
-    const embed = new Discord.MessageEmbed()
-      .setTitle(client.emotes.error + ` Búsqueda`)
-      .setDescription("No se encontraron resultados")
-      .setColor("#FFFFFF")
-      .setTimestamp()
-      .setFooter('Memer', client.botURL)
-    message.channel.send({ embeds: [embed] })
   })
   .on("finish", queue => {
     const embed = new Discord.MessageEmbed()
