@@ -140,7 +140,7 @@ client.on("messageCreate", async (message) => {
     waitingSearch = false;
     if(!isNaN(messi[0]) && messi[0] === 'cancelar')
       return;
-    client.distube.play(message, searchList[messi[0]].url);
+    client.distube.play(message, searchList[messi[0]-1].url);
   }
   const command = messi[0].toLowerCase()  
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
