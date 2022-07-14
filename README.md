@@ -16,13 +16,16 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
 ## Comandos
 * Música
    + play: Reproduce música desde YouTube, SoundCloud, Facebook, y 700+ sitios (consultar documentación de Distube)
+   + playskip: Reproduce la canción y saltea la que se esté reproduciendo
    + autoplay: Continúa la reproducción con videos sugeridos
+   + jump: Reproduce la canción de la cola que se indique
    + skip: Saltea la canción
+   + search: Busca la canción que indiques y muestra 10 resultados
    + pause: Pausa la canción
    + resume: Reanuda la canción
    + stop: Detiene la reproducción completamente y desconecta al bot
    + sfuffle: Aleatoriza la queue
-   + queue: Muestra la queue (Bug: Si en conjunto tiene más de 1500 caracteres no se mostrará)
+   + queue: Muestra la queue en páginas
    + previous: Reproduce la canción anterior
    + seek: Reproduce la canción desde los segundos indicados
    + volume: Establece el volumen del bot
