@@ -13,7 +13,7 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
    + [Open Weather Map] (https://rapidapi.com/community/api/open-weather-map/)
    + [SocialDownloader] (https://rapidapi.com/CrashBash/api/socialdownloader/)
    + [Popular Video Downloader] (https://rapidapi.com/webcracking/api/popular-video-downloader/)
-*APIs abiertas
+* APIs abiertas
    + Joke
 ## Comandos
 * Música
@@ -70,7 +70,7 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
 Requerimentos
 * Node.js v16
 * npm v8
-### npm i
+> npm i
 Una vez instalados los paquetes, configurar el archivo config.json y listo, usar
-### node index.js || node .
+> node index.js || node .
 Puedes mantener tu bot corriendo con ayuda de PM2
