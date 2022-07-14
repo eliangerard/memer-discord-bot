@@ -6,13 +6,13 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
 * Genius
 * Giphy
 * APIs en RapidAPI
-   - [Meme Generator] (https://rapidapi.com/meme-generator-api-meme-generator-api-default/api/meme-generator/)
-   - [Microsoft Translator] (https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/)
-   - [URL Shortener Service] (https://rapidapi.com/BigLobster/api/url-shortener-service/)
-   - [Everypixel Image Recognition] (https://rapidapi.com/everypixel/api/everypixel-image-recognition/)
-   - [Open Weather Map] (https://rapidapi.com/community/api/open-weather-map/)
-   - [SocialDownloader] (https://rapidapi.com/CrashBash/api/socialdownloader/)
-   - [Popular Video Downloader] (https://rapidapi.com/webcracking/api/popular-video-downloader/)
+   - [Meme Generator](https://rapidapi.com/meme-generator-api-meme-generator-api-default/api/meme-generator/)
+   - [Microsoft Translator](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/)
+   - [URL Shortener Service](https://rapidapi.com/BigLobster/api/url-shortener-service/)
+   - [Everypixel Image Recognition](https://rapidapi.com/everypixel/api/everypixel-image-recognition/)
+   - [Open Weather Map](https://rapidapi.com/community/api/open-weather-map/)
+   - [SocialDownloader](https://rapidapi.com/CrashBash/api/socialdownloader/)
+   - [Popular Video Downloader](https://rapidapi.com/webcracking/api/popular-video-downloader/)
 * APIs abiertas
    + Joke
 ## Comandos
@@ -73,6 +73,8 @@ Requerimentos
 > npm i
 
 Una vez instalados los paquetes, configurar el archivo config.json y listo, usar
-> node index.js || node .
+> node index.js
+o
+> node .
 
-Puedes mantener tu bot corriendo con ayuda de PM2
+Puedes mantener tu bot corriendo con ayuda de [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/)
