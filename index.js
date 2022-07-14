@@ -137,10 +137,10 @@ client.on("messageCreate", async (message) => {
   if(message.content.includes('leche'))message.react('🧐')
   let messi = message.content.substring(prefix.length).split(' ');
   if(waitingSearch){
+    waitingSearch = false;
     if(!isNaN(messi[0]) && messi[0] === 'cancelar')
-      waitingSearch = false;
-    else 
-      client.distube.play(message, searchList[messi[0]].url)
+      return;
+    client.distube.play(message, searchList[messi[0]].url);
   }
   const command = messi[0].toLowerCase()  
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))

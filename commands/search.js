@@ -26,12 +26,15 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`Búsqueda`)
                 .setColor("#FFFFFF")
-                .setDescription(`${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Selecciona una opción con ${client.config.prefix}numero o cancela con ${client.config.prefix}cancelar*`)
+                .setDescription(`${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Selecciona una opción con ${client.config.prefix}numero o cancela con ${client.config.prefix}cancelar, en 60 segundos se cancelará automáticamente.*`)
                 .setTimestamp()
                 .setFooter('Memer', client.botURL)
                 message.channel.send({ embeds: [embed] }).then(msg => {
-                    setTimeout(() => msg.delete(), 15000)
-                })
+                    setTimeout(() => {
+                        msg.delete();
+                        client.waitingForResponse(false, null);
+                    }, 60000);
+                });
             });
 
         } catch (e) {
