@@ -22,7 +22,6 @@ module.exports = {
                 setTimeout(() => msg.delete(), 15000)
               })    
         }
-        setTimeout(() => message.delete(), 15000)
         try {
             client.distube.play(message, string, options, client)            
         } catch (e) {
