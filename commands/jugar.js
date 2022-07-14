@@ -7,6 +7,31 @@ module.exports = {
         if (!messi[1]) {
             return message.channel.send('Indica el juego que quieres jugar');
           }
+          if (messi[1] === 'help'){
+            const embed = new Discord.MessageEmbed()
+                .setTitle("Jugar")
+                .setColor("#FFFFFF")
+                .setDescription('Juegos disponibles y como llamarlos')
+                .setThumbnail(client.botURL)
+                //Poker, Chess, Or Checkers in the Park, Betrayal, Fishington, Letter Tile, Words Snack, Doodle Crew, SpellCast, Awkword, Puttparty
+                .addField("Poker", "poker")
+                .addField("Chess", "chess")
+                .addField("Or Checkers in the Park", "checkers")
+                .addField("Betrayal", "betrayal")
+                .addField("Fishington", "fishington")
+                .addField("Letter Tile", "letter")
+                .addField("Words Snack", "words")
+                .addField("Doodle Crew", "doodle")
+                .addField("SpellCast", "spellcast")
+                .addField("Awkword", "awkword")
+                .addField("Puttparty", "puttparty")
+                .setTimestamp()
+                .setFooter('Memer', client.botURL);
+
+            return message.reply({ embeds: [embed] }).then(msg => {
+                setTimeout(() => msg.delete(), 15000)
+              })    
+          }
           if (message.member.voice.channel) {
             if (messi[1] === 'doodle') {
               client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'doodlecrew').then(async invite => {
