@@ -20,6 +20,11 @@ const client = new Discord.Client({
   restRequestTimeout: 30000,
   shards: "auto",
 });
+let waitingSearch = false, searchList = null;
+client.waitingForResponse = (waiting, songs) => {
+  waitingSearch = waiting;
+  searchList = songs;
+}
 
 client.config = require("./config.json")
 client.botURL = client.config.botURL;
@@ -126,9 +131,17 @@ client.on('guildMemberRemove', async member => {
 });
 client.on("messageCreate", async (message) => {
   const prefix = client.config.prefix;
-  if(!message.content.startsWith(prefix))return
+  if(!message.content.startsWith(prefix)) return;
+  
+    
   if(message.content.includes('leche'))message.react('🧐')
   let messi = message.content.substring(prefix.length).split(' ');
+  if(waiting){
+    if(!isNaN(messi[0]) && messi[0] === 'cancelar')
+      waiting = false;
+    else 
+      client.distube.play(message, searchList[messi[0]].url)
+  }
   const command = messi[0].toLowerCase()  
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
   if (!cmd) return
@@ -187,6 +200,7 @@ client.distube
   // DisTubeOptions.searchSongs = true
   .on("searchResult", (message, result) => {
     let i = 0;
+    console.log(result);
     const embed = new Discord.MessageEmbed()
       .setTitle(`Búsqueda`)
       .setColor("#FFFFFF")

@@ -20,7 +20,19 @@ module.exports = {
 
         try {
             client.distube.search(string)
-            .then(songs => console.log(songs));
+            .then(result => {
+                client.waitingForResponse(true, result);
+                const embed = new Discord.MessageEmbed()
+                .setTitle(`Búsqueda`)
+                .setColor("#FFFFFF")
+                .setDescription(`${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Selecciona una opción con ${client.config.prefix}numero o cancela con ${client.config.prefix}cancelar*`)
+                .setTimestamp()
+                .setFooter('Memer', client.botURL)
+                message.channel.send({ embeds: [embed] }).then(msg => {
+                    setTimeout(() => msg.delete(), 15000)
+                })
+            });
+
         } catch (e) {
             const embed = new Discord.MessageEmbed()
             .setTitle(client.emotes.error+" Error")
