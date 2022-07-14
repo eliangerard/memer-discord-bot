@@ -185,7 +185,7 @@ client.distube
     })    
   })
   // DisTubeOptions.searchSongs = true
-  .on("searchResult", (message, result) => {
+  .on("searchResult", (queue, result) => {
     let i = 0
     const embed = new Discord.MessageEmbed()
       .setTitle(`Búsqueda`)
