@@ -82,7 +82,7 @@ module.exports = {
             .setTimestamp()
             .setFooter('Memer', client.botURL)
         ];
-        
+
         return message.reply({ embeds: [embeds[0]] }).then(msg => {
             const handler = (reaction, user) => {
                 if(reaction.message.id == msg.id && !user.bot){
@@ -93,12 +93,10 @@ module.exports = {
                     if(reaction.emoji.name == "➡️"){
                         if(page == totalPages-1) page = 0;
                         else page++;
-                        updateQueue(queue);
                     }
                     if(reaction.emoji.name == "⬅️"){
                         if(page == 0) page = totalPages-1;
                         else page--;
-                        updateQueue(queue);
                     }
 
                     msg.edit({ embeds: [embeds[page]] });
