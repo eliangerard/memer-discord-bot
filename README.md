@@ -1,28 +1,35 @@
 # memer-bot
-Bot para Discord que reproduce música (vía Distube), permite acceso a juegos que no están disponibles en Discord Activity y algunas otras funciones, para las cuales es necesario registrarse en los siguientes servicios como desarrollador para obtener tokens de APIs:
-* Discord (Para el token del bot)
-* MongoDB (Base de datos, obtener String de conexión y nombre de la base de datos)
-* Spotify for Developers
-* Genius
-* Giphy
+Bot para Discord que reproduce música (vía [Distube](https://distube.js.org/#/)), permite acceso a juegos que no están disponibles en Discord Activity y algunas otras funciones, para las cuales es necesario registrarse en los siguientes servicios como desarrollador para obtener tokens de APIs:
+* [Discord](https://discord.com/developers/applications) (Para el token del bot)
+* [MongoDB](https://account.mongodb.com/) (Base de datos, obtener String de conexión y nombre de la base de datos)
+* [Spotify for Developers](https://developer.spotify.com/dashboard/)
+* [Genius](https://genius.com/api-clients)
+* [Giphy](https://developers.giphy.com/dashboard/)
 * APIs en RapidAPI
-   + Meme Generator
-   + Microsoft Translator
-   + Joke
-   + URL Shortener Service
-   + Everypixel Image Recognition
-   + Open Weather Map
-   + SocialDownloader
+   - [Meme Generator](https://rapidapi.com/meme-generator-api-meme-generator-api-default/api/meme-generator/)
+   - [Microsoft Translator](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/)
+   - [URL Shortener Service](https://rapidapi.com/BigLobster/api/url-shortener-service/)
+   - [Everypixel Image Recognition](https://rapidapi.com/everypixel/api/everypixel-image-recognition/)
+   - [Open Weather Map](https://rapidapi.com/community/api/open-weather-map/)
+   - [SocialDownloader](https://rapidapi.com/CrashBash/api/socialdownloader/)
+   - [Popular Video Downloader](https://rapidapi.com/webcracking/api/popular-video-downloader/)
+* APIs abiertas (No requieren registrarse)
+   + [Joke](https://v2.jokeapi.dev/)
+   + [Chuck Norris](https://api.chucknorris.io/)
+   + [Insult](https://evilinsult.com/)
 ## Comandos
 * Música
    + play: Reproduce música desde YouTube, SoundCloud, Facebook, y 700+ sitios (consultar documentación de Distube)
+   + playskip: Reproduce la canción y saltea la que se esté reproduciendo
    + autoplay: Continúa la reproducción con videos sugeridos
+   + jump: Reproduce la canción de la cola que se indique
    + skip: Saltea la canción
+   + search: Busca la canción que indiques y muestra 10 resultados
    + pause: Pausa la canción
    + resume: Reanuda la canción
    + stop: Detiene la reproducción completamente y desconecta al bot
    + sfuffle: Aleatoriza la queue
-   + queue: Muestra la queue (Bug: Si en conjunto tiene más de 1500 caracteres no se mostrará)
+   + queue: Muestra la queue en páginas
    + previous: Reproduce la canción anterior
    + seek: Reproduce la canción desde los segundos indicados
    + volume: Establece el volumen del bot
@@ -63,9 +70,15 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
 
 ## Instalación
 Requerimentos
-* Node.js v16
+* Node.js v16+
 * npm v8
-### npm i
+> npm i
+
 Una vez instalados los paquetes, configurar el archivo config.json y listo, usar
-### node index.js || node .
-Puedes mantener tu bot corriendo con ayuda de PM2
+> node index.js
+
+o
+
+> node .
+
+Puedes mantener tu bot corriendo con ayuda de [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/)
