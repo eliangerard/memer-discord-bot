@@ -3,22 +3,25 @@ const Discord = require("discord.js");
 let page;
 let totalPages;
 let q;
-const updateQueue = () => {
-    q = `**Reproduciendo:** ${queue.songs[0].name} - \`${queue.songs[0].formattedDuration}\`\n`;
 
-    for(let i = page*10; i < queue.songs.length > page*10+10 ? page*10+10 : queue.songs.length; i++){
-        q += `**${i}.** ${queue.songs[i].name} - \`${queue.songs[i].formattedDuration}\`\n`
-    }
-
-    q += `*Página: ${(page+1)+"/"+totalPages}*`;
-}
 module.exports = {
     name: "queue",
     aliases: ["q","cola"],
     run: async (client, message, args) => {
         page = 0;
         totalPages = Math.ceil(queue.songs.length/10);
-        const queue = client.distube.getQueue(message)
+        const queue = client.distube.getQueue(message);
+
+        const updateQueue = () => {
+            q = `**Reproduciendo:** ${queue.songs[0].name} - \`${queue.songs[0].formattedDuration}\`\n`;
+        
+            for(let i = page*10; i < queue.songs.length > page*10+10 ? page*10+10 : queue.songs.length; i++){
+                q += `**${i}.** ${queue.songs[i].name} - \`${queue.songs[i].formattedDuration}\`\n`
+            }
+        
+            q += `*Página: ${(page+1)+"/"+totalPages}*`;
+        }
+
         setTimeout(() => message.delete(), 15000)
         if(args.length > 1) return;
         if (!queue) {
