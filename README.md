@@ -13,6 +13,7 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
    + Everypixel Image Recognition
    + Open Weather Map
    + SocialDownloader
+   + (Popular Video Downloader) [https://rapidapi.com/webcracking/api/popular-video-downloader/]
 ## Comandos
 * Música
    + play: Reproduce música desde YouTube, SoundCloud, Facebook, y 700+ sitios (consultar documentación de Distube)
