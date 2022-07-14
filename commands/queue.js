@@ -62,13 +62,13 @@ module.exports = {
                         updateQueue(queue);
                     }
                     console.log("Updating: \n"+q);
-                    const embed = new Discord.MessageEmbed()
+                    let newEmbed = new Discord.MessageEmbed()
                     .setTitle(client.emotes.queue+" Cola")
                     .setColor("#FFFFFF")
                     .setDescription(`${q}`)
                     .setTimestamp()
                     .setFooter('Memer', client.botURL);
-                    msg.edit(embed);
+                    msg.edit(newEmbed);
                 }
             }
             msg.react('⬅️');
