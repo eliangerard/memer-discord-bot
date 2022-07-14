@@ -69,6 +69,7 @@ module.exports = {
                     .addField("En la lista:", `${q}`)
                     .setTimestamp()
                     .setFooter('Memer', client.botURL);
+                    msg.edit({ embeds: [embed] });
                 }
             }
             msg.react('⬅️');
