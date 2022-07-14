@@ -21,6 +21,7 @@ module.exports = {
         try {
             client.distube.search(string)
             .then(result => {
+                let i = 0;
                 client.waitingForResponse(true, result);
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`Búsqueda`)
