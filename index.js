@@ -45,25 +45,27 @@ client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 
 fs.readdir("./commands/", (err, files) => {
-  if (err) return console.log("No se encontraron comandos")
-  const jsFiles = files.filter(f => f.split(".").pop() === "js")
-  if (jsFiles.length <= 0) return console.log("No se encontraron comandos")
-  jsFiles.forEach(file => {
-    const cmd = require(`./commands/${file}`)
-    console.log(`Comando ${file} cargado`)
-    client.commands.set(cmd.name, cmd)
-    if (cmd.aliases) cmd.aliases.forEach(alias => client.aliases.set(alias, cmd.name))
-  })
-})
+  if (err) return console.log("No se encontraron comandos");
+  const jsFiles = files.filter(f => f.split(".").pop() === "js");
+  if (jsFiles.length <= 0) return console.log("No se encontraron comandos");
 
-async function main(){
-  await client.mongo.connect()
-  console.log(await client.mongo.db().admin().listDatabases())
+  jsFiles.forEach(file => {
+    const cmd = require(`./commands/${file}`);
+    console.log(`Comando ${file} cargado`);
+    client.commands.set(cmd.name, cmd);
+    if (cmd.aliases) cmd.aliases.forEach(alias => client.aliases.set(alias, cmd.name));
+  });
+});
+
+const main = async () => {
+  await client.mongo.connect();
+  console.log(await client.mongo.db().admin().listDatabases());
 }
-client.on('ready', function () {
-  client.user.setActivity("listo para reproducir música", {
-    type: "STREAMING",
-    url:"https://www.twitch.tv/"
+
+client.on('ready', () => {
+  client.user.setActivity(config.presence.activity, {
+    type: config.presence.type,
+    url: config.presence.url
   });
   main()
   console.log(`${client.user.tag} está listo`)
@@ -218,14 +220,14 @@ client.distube
     })    
     console.error(e)
   })
-  .on("empty", channel => {
+  .on("empty", queue => {
     const embed = new Discord.MessageEmbed()
       .setTitle(client.emotes.sad + " Soledad")
       .setColor("#1111EE")
       .setDescription("No hay nadie en el canal de voz, saliendo...")
       .setTimestamp()
       .setFooter('Memer', client.botURL)
-    channel.send({ embeds: [embed] }).then(msg => {
+    queue.textChannel.send({ embeds: [embed] }).then(msg => {
       setTimeout(() => msg.delete(), 15000)
     })    
   })
