@@ -8,7 +8,7 @@ const updateQueue = (queue) => {
     console.log(queue.songs);
     q = `**Reproduciendo:** ${queue.songs[0].name} - \`${queue.songs[0].formattedDuration}\`\n`;
 
-    for(let i = page*10; i < (queue.songs.length > (page*10)+10 ? page*10+10 : queue.songs.length); i++){
+    for(let i = page*10+1; i < (queue.songs.length > (page*10)+11 ? page*10+11 : queue.songs.length); i++){
         console.log(i);
         q += `**${i}.** ${queue.songs[i].name} - \`${queue.songs[i].formattedDuration}\`\n`;
     }
@@ -46,8 +46,8 @@ module.exports = {
         .setTimestamp()
         .setFooter('Memer', client.botURL);
         message.channel.send( { embeds: [embed] } ).then(msg => {
-            const handler = reaction => {
-                if(reaction.message.id == msg.id){
+            const handler = (reaction, user) => {
+                if(reaction.message.id == msg.id && !user.bot){
                     if(reaction.emoji.name == "✔️"){                        
                         client.removeListener('messageReactionAdd', handler)
                         return msg.delete();
@@ -55,12 +55,12 @@ module.exports = {
                     if(reaction.emoji.name == "➡️"){
                         if(page == totalPages-1) page = 0;
                         else page++;
-                        updateQueue();
+                        updateQueue(queue);
                     }
                     if(reaction.emoji.name == "⬅️"){
                         if(page == 0) page = totalPages-1;
                         else page--;
-                        updateQueue();
+                        updateQueue(queue);
                     }
                     const embed = new Discord.MessageEmbed()
                     .setTitle(client.emotes.queue+" Cola")
