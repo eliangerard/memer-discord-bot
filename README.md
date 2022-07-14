@@ -71,6 +71,8 @@ Requerimentos
 * Node.js v16
 * npm v8
 > npm i
+
 Una vez instalados los paquetes, configurar el archivo config.json y listo, usar
 > node index.js || node .
+
 Puedes mantener tu bot corriendo con ayuda de PM2
