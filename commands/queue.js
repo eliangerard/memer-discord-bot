@@ -71,8 +71,8 @@ module.exports = {
                     msg.edit(embed);
                 }
             }
-            msg.react('➡️');
             msg.react('⬅️');
+            msg.react('➡️');
             msg.react('✔️');
             client.on('messageReactionAdd', handler); 
           })    
