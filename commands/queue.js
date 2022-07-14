@@ -48,7 +48,7 @@ module.exports = {
         message.channel.send( { embeds: [embed] } ).then(msg => {
             const handler = (reaction, user) => {
                 if(reaction.message.id == msg.id && !user.bot){
-                    if(reaction.emoji.name == "✔️"){                        
+                    if(reaction.emoji.name == "✅"){                        
                         client.removeListener('messageReactionAdd', handler)
                         return msg.delete();
                     }    
@@ -69,7 +69,7 @@ module.exports = {
                     .addField("En la lista:", `${q}`)
                     .setTimestamp()
                     .setFooter('Memer', client.botURL);
-                    
+
                     msg.edit({ embeds: [embed] });
                 }
             }
