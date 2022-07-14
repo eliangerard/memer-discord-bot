@@ -1,10 +1,10 @@
 # memer-bot
-Bot para Discord que reproduce música (vía Distube), permite acceso a juegos que no están disponibles en Discord Activity y algunas otras funciones, para las cuales es necesario registrarse en los siguientes servicios como desarrollador para obtener tokens de APIs:
-* Discord (Para el token del bot)
-* MongoDB (Base de datos, obtener String de conexión y nombre de la base de datos)
-* Spotify for Developers
-* Genius
-* Giphy
+Bot para Discord que reproduce música (vía [Distube](https://distube.js.org/#/)), permite acceso a juegos que no están disponibles en Discord Activity y algunas otras funciones, para las cuales es necesario registrarse en los siguientes servicios como desarrollador para obtener tokens de APIs:
+* [Discord (Para el token del bot)](https://discord.com/developers/applications)
+* [MongoDB (Base de datos, obtener String de conexión y nombre de la base de datos)](https://account.mongodb.com/)
+* [Spotify for Developers](https://developer.spotify.com/dashboard/)
+* [Genius](https://genius.com/api-clients)
+* [Giphy](https://developers.giphy.com/dashboard/)
 * APIs en RapidAPI
    - [Meme Generator](https://rapidapi.com/meme-generator-api-meme-generator-api-default/api/meme-generator/)
    - [Microsoft Translator](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/)
@@ -13,8 +13,10 @@ Bot para Discord que reproduce música (vía Distube), permite acceso a juegos q
    - [Open Weather Map](https://rapidapi.com/community/api/open-weather-map/)
    - [SocialDownloader](https://rapidapi.com/CrashBash/api/socialdownloader/)
    - [Popular Video Downloader](https://rapidapi.com/webcracking/api/popular-video-downloader/)
-* APIs abiertas
-   + Joke
+* APIs abiertas (No requieren registrarse)
+   + [Joke](https://v2.jokeapi.dev/)
+   + [Chuck Norris](https://api.chucknorris.io/)
+   + [Insult](https://evilinsult.com/)
 ## Comandos
 * Música
    + play: Reproduce música desde YouTube, SoundCloud, Facebook, y 700+ sitios (consultar documentación de Distube)
