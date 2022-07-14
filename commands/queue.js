@@ -8,9 +8,9 @@ module.exports = {
     name: "queue",
     aliases: ["q","cola"],
     run: async (client, message, args) => {
+        const queue = client.distube.getQueue(message);
         page = 0;
         totalPages = Math.ceil(queue.songs.length/10);
-        const queue = client.distube.getQueue(message);
 
         const updateQueue = () => {
             q = `**Reproduciendo:** ${queue.songs[0].name} - \`${queue.songs[0].formattedDuration}\`\n`;
