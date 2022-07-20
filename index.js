@@ -142,9 +142,15 @@ client.on("messageCreate", async (message) => {
   }
   const command = messi[0].toLowerCase()  
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
+  
   if (!cmd) return
-  if (cmd.inVoiceChannel && ((!message.member.voice.channel && !cmd.minecraftable) || (message.member.voice.channel != message.guild.members.me.voice.channel))) 
-    return message.channel.send(`${client.emotes.error} => Tienes que estar en el canal de voz en el que estoy`)
+
+  if (cmd.inVoiceChannel && message.guild.members.me.voice != undefined)
+    if ((message.member.voice.channel != message.guild.members.me.voice.channel))
+      return message.channel.send(`${client.emotes.error} => Tienes que estar en el canal de voz en el que estoy`);
+
+  if (cmd.inVoiceChannel && (!message.member.voice.channel && !cmd.minecraftable)) 
+    return message.channel.send(`${client.emotes.error} => Tienes que estar en un canal de voz`);
   try {
     cmd.run(client, message, messi)
   } catch (e) {
