@@ -130,6 +130,8 @@ client.on('guildMemberRemove', async member => {
   }
 });
 client.on("messageCreate", async (message) => {
+
+  console.log(client.guilds.fetch(message.guildid).members);
   const prefix = client.config.prefix;
   if(!message.content.startsWith(prefix)) return;
   if(message.content.includes('leche'))message.react('🧐')
