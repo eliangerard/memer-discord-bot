@@ -12,7 +12,9 @@ module.exports = {
             .setDescription("No se está reproduciendo nada")
             .setTimestamp()
             .setFooter('Memer', client.botURL)
-            return message.channel.send( { embeds: [embed] } )
+            return message.channel.send( { embeds: [embed] } ).then(msg => {
+                setTimeout(() => msg.delete(), 15000)
+            })    
         }
         if (args[1] === "off" && queue.filters?.length) queue.setFilter(false)
         else if (Object.keys(client.distube.filters).includes(args[1])) queue.setFilter(args[1])
@@ -23,7 +25,9 @@ module.exports = {
             .setDescription("El filtro no es válido")
             .setTimestamp()
             .setFooter('Memer', client.botURL)
-            return message.channel.send( { embeds: [embed] } )
+            return message.channel.send( { embeds: [embed] } ).then(msg => {
+                setTimeout(() => msg.delete(), 15000)
+              })    
         }
         const embed = new Discord.MessageEmbed()
         .setTitle(client.emotes.success+" Listo")
@@ -31,6 +35,8 @@ module.exports = {
         .setDescription(`Filtro aplicado actualmente: \`${queue.filters.join(", ") || "Ninguno"}\``)
         .setTimestamp()
         .setFooter('Memer', client.botURL)
-        return message.channel.send( { embeds: [embed] } )
+        return message.channel.send( { embeds: [embed] } ).then(msg => {
+            setTimeout(() => msg.delete(), 15000)
+          })    
     }
 }
