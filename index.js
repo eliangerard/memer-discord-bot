@@ -145,7 +145,7 @@ client.on("messageCreate", async (message) => {
 
   if (!cmd) return
 
-  if (cmd.inVoiceChannel && message.guild.members.me.voice)
+  if (cmd.inVoiceChannel && message.guild.members.fetch(client.user).voice)
     if ((message.member.voice.channel != message.guild.members.me.voice.channel))
       return message.channel.send(`${client.emotes.error} => Tienes que estar en el canal de voz en el que estoy`);
 
