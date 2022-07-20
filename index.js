@@ -130,8 +130,6 @@ client.on('guildMemberRemove', async member => {
   }
 });
 client.on("messageCreate", async (message) => {
-
-  console.log(client.guilds.fetch(message.guildid).members);
   const prefix = client.config.prefix;
   if(!message.content.startsWith(prefix)) return;
   if(message.content.includes('leche'))message.react('🧐')
@@ -145,7 +143,7 @@ client.on("messageCreate", async (message) => {
   const command = messi[0].toLowerCase()  
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
   if (!cmd) return
-  if (cmd.inVoiceChannel && ((!message.member.voice.channel && !cmd.minecraftable) || (message.member.voice.channel != client.guilds.fetch(message.guildid).members.fetchMe().voice.channel))) 
+  if (cmd.inVoiceChannel && ((!message.member.voice.channel && !cmd.minecraftable) || (message.member.voice.channel != message.guild.members.me.voice.channel))) 
     return message.channel.send(`${client.emotes.error} => Tienes que estar en el canal de voz en el que estoy`)
   try {
     cmd.run(client, message, messi)
