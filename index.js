@@ -134,7 +134,7 @@ client.on("messageCreate", async (message) => {
   if(!message.content.startsWith(prefix)) return;
   if(message.content.includes('leche'))message.react('🧐')
   let messi = message.content.substring(prefix.length).split(' ');
-  if(waitingSearch){
+  if(waitingSearch && !message.author.bot){
     waitingSearch = false;
     if(!isNaN(messi[0]) && messi[0] === 'cancelar')
       return;
