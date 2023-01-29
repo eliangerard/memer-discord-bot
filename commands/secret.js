@@ -18,7 +18,7 @@ module.exports = {
             .then(response => {
                 let writeStream = fs.createWriteStream('pdf123.pdf')
                 writeStream.once('open', (fd) =>{
-                    writeStream.write(new Buffer.from(response.data, 'binary'))
+                    writeStream.write(new Buffer.from(response, 'binary'))
                     writeStream.on('finish', () => {
                     console.log('wrote all data to file');
                     });
