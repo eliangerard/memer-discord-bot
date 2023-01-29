@@ -16,18 +16,14 @@ module.exports = {
 
         fetch("https://sii.chihuahua2.tecnm.mx/modulos/alu/inscripciones/seleccion_materias/cargaacademica_pdf.php", requestOptions)
             .then(response => {
-                const pdfString = Buffer.from(response.data).toString("base64");
-  
-                fs.writeFile("download.pdf", pdfString, 'base64', function(err) {
-                    console.log(err);
-                });
-
-                message.channel.send({
-                    files: [{
-                        attachment: '/home/ec2-user/memer/download.pdf',
-                        name: 'download.pdf'
-                    }]
-                });
+                let writeStream = fs.createWriteStream('pdf123.pdf')
+                writeStream.once('open', (fd) =>{
+                    writeStream.write(new Buffer.from(response.data, 'binary'))
+                    writeStream.on('finish', () => {
+                    console.log('wrote all data to file');
+                    });
+                    writeStream.end()
+                })
             })
             .catch(error => console.log('error', error));
         }
