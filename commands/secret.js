@@ -1,5 +1,5 @@
 const FormData = require('form-data');
-
+const fs = require('fs');
 let jsoner = { json: true };
 module.exports = {
     name: "boleta",
@@ -18,10 +18,11 @@ module.exports = {
             .then(response => response.text())
             .then(async result => {
                 console.log(result);
-                const base64Str = Buffer.from(result).toString("base64");
+                const pdfString = Buffer.from(result).toString("base64");
   
-                let decodedBase64 = await base64topdf.base64Decode(base64Str,"download.pdf");
-                const fileContent = fs.readFileSync("download.pdf");
+                fs.writeFile("download.pdf", pdfString, 'base64', function(err) {
+                    console.log(err);
+                });
 
                 message.channel.send({
                     files: [{
