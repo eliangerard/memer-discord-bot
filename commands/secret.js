@@ -17,6 +17,7 @@ module.exports = {
         fetch("https://sii.chihuahua2.tecnm.mx/modulos/alu/inscripciones/seleccion_materias/cargaacademica_pdf.php", requestOptions)
             .then(response => response.text())
             .then(async result => {
+                console.log(result);
                 const base64Str = Buffer.from(result).toString("base64");
   
                 let decodedBase64 = await base64topdf.base64Decode(base64Str,"download.pdf");
