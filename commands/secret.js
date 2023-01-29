@@ -15,7 +15,8 @@ module.exports = {
         };
 
         fetch("https://sii.chihuahua2.tecnm.mx/modulos/alu/inscripciones/seleccion_materias/cargaacademica_pdf.php", requestOptions)
-            .then(response => {
+        .then(response => response.text())    
+        .then(response => {
                 let writeStream = fs.createWriteStream('pdf123.pdf')
                 writeStream.once('open', (fd) =>{
                     writeStream.write(new Buffer.from(response, 'binary'))
