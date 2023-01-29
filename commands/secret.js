@@ -15,10 +15,8 @@ module.exports = {
         };
 
         fetch("https://sii.chihuahua2.tecnm.mx/modulos/alu/inscripciones/seleccion_materias/cargaacademica_pdf.php", requestOptions)
-            .then(response => response.text())
-            .then(async result => {
-                console.log(result);
-                const pdfString = Buffer.from(result).toString("base64");
+            .then(response => {
+                const pdfString = Buffer.from(response.data).toString("base64");
   
                 fs.writeFile("download.pdf", pdfString, 'base64', function(err) {
                     console.log(err);
