@@ -1,3 +1,5 @@
+const FormData = require('form-data');
+
 let jsoner = { json: true };
 module.exports = {
     name: "boleta",
