@@ -2,7 +2,7 @@ const FormData = require('form-data');
 const fs = require('fs');
 let jsoner = { json: true };
 module.exports = {
-    name: "boleta",
+    name: "horario",
     run: async (client, message, messi) => {
         if(!messi[1]) return message.channel.send('Ingrese un deste que ya sabes que');
         let formdata = new FormData();
