@@ -19,11 +19,11 @@ module.exports = {
             if (res.ok) return res.arrayBuffer();
         })
         .then(buffer => {
-            fs.writeFileSync(`horariode${messi[1]}.pdf`, Buffer.from(buffer));
+            fs.writeFileSync(`horario de ${messi[1]}.pdf`, Buffer.from(buffer));
             message.channel.send({
                 files: [{
-                    attachment: `/home/ec2-user/memer/horariode${messi[1]}.pdf`,
-                    name: `horariode${messi[1]}.pdf`
+                    attachment: `/home/ec2-user/memer/horario de ${messi[1]}.pdf`,
+                    name: `horario de ${messi[1]}.pdf`
                 }]
             });
         });
